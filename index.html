@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patent Portfolio — Kishore Reddy Pagidi</title>
+  <meta name="description" content="4 UK Patents in Autonomous Vehicle Technology by Kishore Reddy Pagidi, AI Product Manager & Robotics Engineer." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #111118;
+      --surface2: #16161f;
+      --border: rgba(255,255,255,0.07);
+      --text: #e8e8f0;
+      --text-dim: #7070a0;
+      --text-dimmer: #404065;
+      --accent: #6c63ff;
+      --accent2: #a78bfa;
+      --accent3: #38bdf8;
+      --gold: #f59e0b;
+      --green: #10b981;
+      --card-glow: rgba(108, 99, 255, 0.12);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── ANIMATED GRID BACKGROUND ── */
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(108,99,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(108,99,255,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .bg-orb {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(100px);
+      opacity: 0.18;
+      z-index: 0;
+    }
+    .bg-orb-1 {
+      width: 500px; height: 500px;
+      background: var(--accent);
+      top: -150px; left: -150px;
+    }
+    .bg-orb-2 {
+      width: 400px; height: 400px;
+      background: var(--accent3);
+      bottom: -100px; right: -100px;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── HEADER ── */
+    header {
+      padding: 72px 0 56px;
+      text-align: center;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(108,99,255,0.12);
+      border: 1px solid rgba(108,99,255,0.3);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent2);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .header-badge .dot {
+      width: 7px; height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #fff 0%, var(--accent2) 60%, var(--accent3) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+    }
+
+    .header-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-dim);
+      font-weight: 400;
+      max-width: 520px;
+      margin: 0 auto 40px;
+    }
+
+    .header-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .meta-chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text-dim);
+    }
+    .meta-chip a {
+      color: var(--accent2);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .meta-chip a:hover { color: #fff; }
+    .meta-chip .sep { color: var(--text-dimmer); }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 0 auto 72px;
+      max-width: 640px;
+    }
+
+    .stat {
+      background: var(--surface);
+      padding: 24px 20px;
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-number span {
+      background: linear-gradient(135deg, var(--accent2), var(--accent3));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 500;
+    }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dimmer);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── PATENT CARDS ── */
+    .patent-grid {
+      display: grid;
+      gap: 20px;
+      margin-bottom: 72px;
+    }
+
+    .patent-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      cursor: default;
+    }
+
+    .patent-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--card-glow);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 20px;
+    }
+
+    .patent-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(108,99,255,0.2);
+      border-color: rgba(108,99,255,0.25);
+    }
+
+    .patent-card:hover::before {
+      opacity: 1;
+    }
+
+    .patent-card-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .patent-number-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      background: rgba(108,99,255,0.15);
+      border: 1px solid rgba(108,99,255,0.25);
+      color: var(--accent2);
+      border-radius: 8px;
+      padding: 4px 10px;
+      display: inline-block;
+      margin-bottom: 12px;
+      letter-spacing: 0.05em;
+    }
+
+    .patent-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .patent-description {
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .patent-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .tag {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text-dim);
+    }
+
+    .tag.tag-av { background: rgba(56,189,248,0.1); border-color: rgba(56,189,248,0.2); color: var(--accent3); }
+    .tag.tag-ai { background: rgba(108,99,255,0.1); border-color: rgba(108,99,255,0.2); color: var(--accent2); }
+    .tag.tag-cv { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.2); color: var(--gold); }
+    .tag.tag-slam { background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.2); color: var(--green); }
+
+    .patent-footer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .patent-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent2);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(108,99,255,0.3);
+      background: rgba(108,99,255,0.08);
+      transition: all 0.2s ease;
+    }
+
+    .patent-link:hover {
+      background: rgba(108,99,255,0.2);
+      border-color: rgba(108,99,255,0.5);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    .patent-link svg { flex-shrink: 0; }
+
+    .patent-link.secondary {
+      border-color: rgba(255,255,255,0.08);
+      background: transparent;
+      color: var(--text-dim);
+    }
+    .patent-link.secondary:hover {
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      border-color: rgba(255,255,255,0.15);
+    }
+
+    .patent-number-large {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--text-dimmer);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      text-align: right;
+      user-select: none;
+    }
+
+    /* ── ACCENT LINE ── */
+    .patent-card .accent-line {
+      position: absolute;
+      top: 0; left: 32px; right: 32px;
+      height: 2px;
+      border-radius: 0 0 4px 4px;
+      opacity: 0.6;
+    }
+    .card-0 .accent-line { background: linear-gradient(90deg, var(--accent), var(--accent2)); }
+    .card-1 .accent-line { background: linear-gradient(90deg, var(--accent3), var(--accent2)); }
+    .card-2 .accent-line { background: linear-gradient(90deg, var(--gold), var(--green)); }
+    .card-3 .accent-line { background: linear-gradient(90deg, var(--green), var(--accent3)); }
+
+    /* ── PUBLICATION SECTION ── */
+    .pub-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 72px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .pub-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.35);
+    }
+    .pub-card .accent-line {
+      position: absolute;
+      top: 0; left: 32px; right: 32px;
+      height: 2px;
+      border-radius: 0 0 4px 4px;
+      background: linear-gradient(90deg, #a78bfa, #38bdf8);
+      opacity: 0.6;
+    }
+    .pub-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+    .pub-venue {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      background: rgba(167,139,250,0.1);
+      border: 1px solid rgba(167,139,250,0.25);
+      border-radius: 6px;
+      padding: 4px 10px;
+      margin-bottom: 12px;
+    }
+    .pub-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .pub-authors {
+      font-size: 13px;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+    }
+    .pub-metric {
+      text-align: center;
+      padding: 16px 28px;
+      background: rgba(108,99,255,0.08);
+      border: 1px solid rgba(108,99,255,0.15);
+      border-radius: 14px;
+    }
+    .pub-metric-num {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent2), var(--accent3));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .pub-metric-label {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+      text-align: center;
+    }
+    .footer-text {
+      font-size: 13px;
+      color: var(--text-dimmer);
+      margin-bottom: 12px;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--text-dim);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--accent2); }
+
+    /* ── EB1A CALLOUT ── */
+    .eb1a-callout {
+      background: linear-gradient(135deg, rgba(108,99,255,0.08), rgba(56,189,248,0.06));
+      border: 1px solid rgba(108,99,255,0.2);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 72px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .eb1a-icon {
+      font-size: 2.2rem;
+      flex-shrink: 0;
+    }
+    .eb1a-text h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent2);
+      margin-bottom: 4px;
+    }
+    .eb1a-text p {
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .patent-card-inner { grid-template-columns: 1fr; }
+      .patent-number-large { display: none; }
+      .pub-inner { grid-template-columns: 1fr; }
+      .pub-metric { text-align: left; padding: 12px 16px; }
+      .stats-bar { grid-template-columns: 1fr; }
+      header { padding: 48px 0 40px; }
+    }
+
+    /* ── ENTRY ANIMATIONS ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+    .delay-5 { animation-delay: 0.5s; }
+    .delay-6 { animation-delay: 0.6s; }
+    .delay-7 { animation-delay: 0.7s; }
+    .delay-8 { animation-delay: 0.8s; }
+  </style>
+</head>
+<body>
+
+  <!-- Background -->
+  <div class="bg-grid"></div>
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <header>
+      <div class="header-badge fade-in">
+        <span class="dot"></span>
+        UK Intellectual Property Office · Registered Patents
+      </div>
+      <h1 class="fade-in delay-1">Kishore Reddy Pagidi</h1>
+      <p class="header-subtitle fade-in delay-2">
+        AI Product Manager &amp; Robotics Engineer. Patent holder in autonomous vehicle systems. Researcher in robot imitation learning.
+      </p>
+      <div class="header-meta fade-in delay-3">
+        <span class="meta-chip">
+          🔗 <a href="https://www.linkedin.com/in/kishore005/" target="_blank" rel="noopener">LinkedIn</a>
+        </span>
+        <span class="meta-chip sep">·</span>
+        <span class="meta-chip">
+          🎓 <a href="https://scholar.google.com/citations?user=HM4-fvoAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+        </span>
+        <span class="meta-chip sep">·</span>
+        <span class="meta-chip">
+          🌐 <a href="https://kishorepagidi.com" target="_blank" rel="noopener">kishorepagidi.com</a>
+        </span>
+      </div>
+    </header>
+
+    <!-- STATS BAR -->
+    <div class="stats-bar fade-in delay-4">
+      <div class="stat">
+        <div class="stat-number"><span>4</span></div>
+        <div class="stat-label">UK Patents</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number"><span>22</span>+</div>
+        <div class="stat-label">Paper Citations</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number"><span>3.7M</span></div>
+        <div class="stat-label">Users Impacted</div>
+      </div>
+    </div>
+
+    <!-- EB-1A CALLOUT -->
+    <div class="eb1a-callout fade-in delay-4">
+      <div class="eb1a-icon">🏛️</div>
+      <div class="eb1a-text">
+        <h3>EB-1A Extraordinary Ability Portfolio</h3>
+        <p>These patents, filed during R&amp;D work at Mercedes-Benz North America, represent original contributions to autonomous vehicle technology — qualifying evidence for EB-1A criteria on <em>original contributions of major significance</em> and <em>high salary</em>.</p>
+      </div>
+    </div>
+
+    <!-- PATENTS SECTION -->
+    <div class="section-title fade-in delay-5">UK Patents · Autonomous Vehicle Technology · 2023</div>
+
+    <div class="patent-grid">
+
+      <!-- Patent 1 -->
+      <div class="patent-card card-0 fade-in delay-5">
+        <div class="accent-line"></div>
+        <div class="patent-card-inner">
+          <div>
+            <div class="patent-number-badge">GB2627443</div>
+            <h2 class="patent-title">Camera Selection for Autonomous Vehicles</h2>
+            <p class="patent-description">
+              A novel system for intelligently selecting optimal camera inputs during autonomous driving scenarios. The invention addresses the challenge of multi-camera sensor fusion by dynamically prioritizing visual streams based on road conditions, lighting, and situational context — enabling more reliable perception pipelines for self-driving vehicles.
+            </p>
+            <div class="patent-tags">
+              <span class="tag tag-av">Autonomous Vehicles</span>
+              <span class="tag tag-cv">Computer Vision</span>
+              <span class="tag tag-ai">Sensor Fusion</span>
+              <span class="tag">Perception</span>
+            </div>
+            <div class="patent-footer">
+              <a href="https://www.ipo.gov.uk/p-ipsum/Case/PublicationNumber/GB2627443" target="_blank" rel="noopener" class="patent-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                View on UK IPO
+              </a>
+              <a href="https://patents.google.com/patent/GB2627443" target="_blank" rel="noopener" class="patent-link secondary">
+                Google Patents
+              </a>
+            </div>
+          </div>
+          <div class="patent-number-large">01</div>
+        </div>
+      </div>
+
+      <!-- Patent 2 -->
+      <div class="patent-card card-1 fade-in delay-6">
+        <div class="accent-line"></div>
+        <div class="patent-card-inner">
+          <div>
+            <div class="patent-number-badge">GB2626533</div>
+            <h2 class="patent-title">Route Planning with Terrain Data</h2>
+            <p class="patent-description">
+              An advanced route planning system that integrates real-time and pre-mapped terrain data into autonomous vehicle path generation. The invention enables vehicles to make terrain-aware routing decisions — avoiding hazardous surfaces, optimizing for efficiency, and adapting to dynamic environmental changes along planned routes.
+            </p>
+            <div class="patent-tags">
+              <span class="tag tag-av">Autonomous Vehicles</span>
+              <span class="tag tag-slam">Path Planning</span>
+              <span class="tag tag-ai">Terrain Analysis</span>
+              <span class="tag">HD Maps</span>
+            </div>
+            <div class="patent-footer">
+              <a href="https://www.ipo.gov.uk/p-ipsum/Case/PublicationNumber/GB2626533" target="_blank" rel="noopener" class="patent-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                View on UK IPO
+              </a>
+              <a href="https://patents.google.com/patent/GB2626533" target="_blank" rel="noopener" class="patent-link secondary">
+                Google Patents
+              </a>
+            </div>
+          </div>
+          <div class="patent-number-large">02</div>
+        </div>
+      </div>
+
+      <!-- Patent 3 -->
+      <div class="patent-card card-2 fade-in delay-7">
+        <div class="accent-line"></div>
+        <div class="patent-card-inner">
+          <div>
+            <div class="patent-number-badge">GB2629203</div>
+            <h2 class="patent-title">Vehicle Localization with Landmarks</h2>
+            <p class="patent-description">
+              A landmark-based localization system that enhances vehicle positioning accuracy in GPS-degraded environments. The invention identifies and leverages static infrastructure landmarks — signs, buildings, road markings — as reliable reference anchors, improving autonomous vehicle confidence in urban canyons, tunnels, and other challenging environments.
+            </p>
+            <div class="patent-tags">
+              <span class="tag tag-av">Autonomous Vehicles</span>
+              <span class="tag tag-slam">SLAM / Localization</span>
+              <span class="tag tag-cv">Landmark Detection</span>
+              <span class="tag">HD Maps</span>
+            </div>
+            <div class="patent-footer">
+              <a href="https://www.ipo.gov.uk/p-ipsum/Case/PublicationNumber/GB2629203" target="_blank" rel="noopener" class="patent-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                View on UK IPO
+              </a>
+              <a href="https://patents.google.com/patent/GB2629203" target="_blank" rel="noopener" class="patent-link secondary">
+                Google Patents
+              </a>
+            </div>
+          </div>
+          <div class="patent-number-large">03</div>
+        </div>
+      </div>
+
+      <!-- Patent 4 -->
+      <div class="patent-card card-3 fade-in delay-8">
+        <div class="accent-line"></div>
+        <div class="patent-card-inner">
+          <div>
+            <div class="patent-number-badge">GB2634078</div>
+            <h2 class="patent-title">Multi-Vehicle Positioning System</h2>
+            <p class="patent-description">
+              A cooperative positioning architecture enabling a fleet of vehicles to share and fuse positioning data in real-time. The system achieves higher localization accuracy than single-vehicle approaches by using inter-vehicle communication to cross-validate sensor readings, correct drift errors, and maintain positioning confidence across varied environments.
+            </p>
+            <div class="patent-tags">
+              <span class="tag tag-av">Autonomous Vehicles</span>
+              <span class="tag tag-slam">V2V Communication</span>
+              <span class="tag tag-ai">Fleet Intelligence</span>
+              <span class="tag">Multi-Agent</span>
+            </div>
+            <div class="patent-footer">
+              <a href="https://www.ipo.gov.uk/p-ipsum/Case/PublicationNumber/GB2634078" target="_blank" rel="noopener" class="patent-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                View on UK IPO
+              </a>
+              <a href="https://patents.google.com/patent/GB2634078" target="_blank" rel="noopener" class="patent-link secondary">
+                Google Patents
+              </a>
+            </div>
+          </div>
+          <div class="patent-number-large">04</div>
+        </div>
+      </div>
+
+    </div><!-- /patent-grid -->
+
+    <!-- PUBLICATION SECTION -->
+    <div class="section-title fade-in">Research Publication</div>
+    <div class="pub-card fade-in">
+      <div class="accent-line"></div>
+      <div class="pub-inner">
+        <div>
+          <div class="pub-venue">
+            📄 CoRL 2023 · Conference on Robot Learning
+          </div>
+          <div class="pub-title">One-shot Imitation Learning via Interaction Warping</div>
+          <div class="pub-authors">
+            Kishore Reddy Pagidi et al. · Co-authors from Google DeepMind, Microsoft Research
+          </div>
+          <div class="patent-tags">
+            <span class="tag tag-ai">Imitation Learning</span>
+            <span class="tag tag-slam">Robot Manipulation</span>
+            <span class="tag tag-cv">Interaction Warping</span>
+            <span class="tag">One-shot</span>
+          </div>
+          <div class="patent-footer">
+            <a href="https://arxiv.org/abs/2306.12392" target="_blank" rel="noopener" class="patent-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Read on arXiv
+            </a>
+            <a href="https://scholar.google.com/citations?user=HM4-fvoAAAAJ" target="_blank" rel="noopener" class="patent-link secondary">
+              Google Scholar
+            </a>
+          </div>
+        </div>
+        <div class="pub-metric">
+          <div class="pub-metric-num">22</div>
+          <div class="pub-metric-label">Citations</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="fade-in">
+      <p class="footer-text">
+        All patents registered with the UK Intellectual Property Office (IPO) · Mercedes-Benz R&amp;D North America · 2023
+      </p>
+      <div class="footer-links">
+        <a href="https://www.ipo.gov.uk" target="_blank" rel="noopener">UK Intellectual Property Office</a>
+        <a href="https://kishorepagidi.com" target="_blank" rel="noopener">kishorepagidi.com</a>
+        <a href="https://www.linkedin.com/in/kishore005/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://scholar.google.com/citations?user=HM4-fvoAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      </div>
+    </footer>
+
+  </div><!-- /container -->
+
+</body>
+</html>
